@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Encryption Page</h2>
+
+        <label for="publicKeyEncrypt">Public Key:</label>
+        <textarea id="publicKeyEncrypt" placeholder="Paste the public key here"></textarea>
+
+        <label for="plainText">Plain text:</label>
+        <textarea id="plainText" placeholder="Enter the message you want to encrypt"></textarea>
+        
+        <label for="cipherText">Ciphertext:</label>
+        <textarea id="cipherText" placeholder="Encrypted text will appear here after Encrypt button is pressed" readonly></textarea>
+        
+        <button onclick="encryptMessage()">Encrypt</button>
+    </div>
+
+    <script>
+        const encryptMessage = () => {
+            // This is a mock-up, so we'll just "encrypt" by reversing and encoding in base64
+            const plaintext = document.getElementById('plainText').value;
+            const ciphertext = btoa(plaintext.split('').reverse().join(''));
+
+            // Display the "encrypted" message
+            document.getElementById('cipherText').value = ciphertext;
+        }
+    </script>
+</body>
+</html>

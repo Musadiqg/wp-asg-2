@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generation Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Key Generation Page</h2>
+        <h4>Remember to copy both the keys</h4>
+
+        <label for="publicKey">Public Key:</label>
+        <textarea id="publicKey" name="publicKey" placeholder="Public key will appear here" readonly></textarea>
+        
+        <label for="privateKey">Private Key:</label>
+        <textarea id="privateKey" name="privateKey" placeholder="Private key will appear here" readonly></textarea>
+        
+        <button onclick="generateKeys()">Generate Keys</button>
+    </div>
+
+    <script>
+        const generateKeys = () => {
+            
+            const publicKeyString = "PUBLIC_KEY_" + Math.random().toString(36).substr(2, 5).toUpperCase();
+            const privateKeyString = "PRIVATE_KEY_" + Math.random().toString(36).substr(2, 5).toUpperCase();
+
+            
+            document.getElementById('publicKey').value = publicKeyString;
+            document.getElementById('privateKey').value = privateKeyString;
+        }
+    </script>
+</body>
+</html>

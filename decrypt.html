@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decryption Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Decryption Page</h2>
+
+        <label for="privateKeyDecrypt">Private Key:</label>
+        <textarea id="privateKeyDecrypt" name="privateKey" placeholder="Paste the private key here"></textarea>
+        
+        <label for="cipherTextDecrypt">Ciphertext:</label>
+        <textarea id="cipherTextDecrypt" name="cipherText" placeholder="Paste the encrypted text here"></textarea>
+
+        <label for="decryptedText">Decrypted Plain text:</label>
+        <textarea id="decryptedText" name="decryptedText" placeholder="Decrypted text will appear here" readonly></textarea>
+
+        <button onclick="decryptText()">Decrypt</button>
+    </div>
+
+    <script>
+        const decryptText = () => {
+            const encryptedText = document.getElementById('cipherTextDecrypt').value;
+
+            // Mock "decryption" by decoding the base64 string and then reversing it
+            const decryptedText = [...atob(encryptedText)].reverse().join('');
+
+            document.getElementById('decryptedText').value = decryptedText;
+        }
+    </script>
+</body>
+</html>
